@@ -1,8 +1,7 @@
-./scripts/migrateup.sh
-
 #!/bin/bash
 if [ -f .env ]; then
-    source .env
+    export $(grep -v '^#' .env | xargs)
 fi
+
 cd sql/schema
-goose turso $DATABASE_URL up
+goose -v turso "$DATABASE_URL" up
