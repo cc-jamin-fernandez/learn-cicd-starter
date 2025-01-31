@@ -5,9 +5,6 @@ if [ -f .env ]; then
     export $(grep -v '^#' .env | xargs)
 fi
 
-# Depuración: Imprimir la variable DATABASE_URL para verificar que esté correctamente cargada
-echo "DATABASE_URL: $DATABASE_URL"
-
 # Cambiar al directorio de esquemas SQL
 cd sql/schema
 
